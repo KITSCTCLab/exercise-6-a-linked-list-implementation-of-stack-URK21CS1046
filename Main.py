@@ -7,12 +7,23 @@ class Node:
 class Stack:
   def __init__(self):
     self.head = None
+    self.top = -1
 
   def push(self, data) -> None:
     # Write your code here
+    alex_node = Node(data)
+    alex_node.next = self.head
+    self.head = alex_node
+    self.top +=1
 
   def pop(self) -> None:
     # Write your code here
+    if self.top != -1:
+      temp = self.head
+      self.head = self.head.next
+      self.top -= 1
+      temp.next = None
+      
 
   def status(self):
     """
